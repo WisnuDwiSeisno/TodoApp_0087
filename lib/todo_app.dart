@@ -63,6 +63,14 @@ class _FormPageState extends State<FormPage> {
                           _selectedDate == null ? Colors.black : Colors.black,
                     ),
                   ),
+                  IconButton(
+                    icon: const Icon(Icons.calendar_month, color: Colors.blue),
+                    onPressed: () {
+                      setState(() {
+                        _showDatePicker = true;
+                      });
+                    },
+                  ),
                 ],
               )
             ],
