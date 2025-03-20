@@ -79,6 +79,23 @@ class _FormPageState extends State<FormPage> {
                   "Please select a date",
                   style: TextStyle(color: Colors.red),
                 ),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'First Name',
+                        hintText: 'Enter your first name',
+                        border: const OutlineInputBorder(),
+                        errorStyle: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
