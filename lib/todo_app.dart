@@ -108,11 +108,29 @@ class _FormPageState extends State<FormPage> {
                     child: FilledButton(
                       style: FilledButton.styleFrom(
                         backgroundColor: Colors.deepPurple,
-                      ), onPressed: () {
-                        
-                      }, child: const Text('Submit')
+                      ),
+                      onPressed: () {
+                        FocusScope.of(context).unfocus();
+                        setState(() {}); // Trigger rebuild biar error keliatan
+                        if (_formKey.currentState!.validate() &&
+                            _selectedDate != null) {
+                          _formKey.currentState!.save();
+                          setState(() {
+                            tasks.add({
+                              'title': _firstName!,
+                              'deadline':
+                                  '${_selectedDate!.day.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.year} ${_selectedDate!.hour.toString().padLeft(2, '0')}:${_selectedDate!.minute.toString().padLeft(2, '0')}',
+                              'done': false,
+                            });
+                            _firstName = null;
+                            _selectedDate = null;
+                            _formKey.currentState!.reset();
+                          });
+                        }
+                      },
+                      child: const Text('Submit'),
                     ),
-                  )
+                  ),
                 ],
               ),
             ],
