@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const TodoApp());
+}
+
 class TodoApp extends StatelessWidget {
   const TodoApp({super.key});
 
@@ -40,6 +44,7 @@ class _FormPageState extends State<FormPage> {
         centerTitle: true,
         elevation: 0,
       ),
+      body: SingleChildScrollView()
     );
   }
 }
