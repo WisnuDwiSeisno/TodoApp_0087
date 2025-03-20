@@ -153,6 +153,22 @@ class _FormPageState extends State<FormPage> {
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
                   ),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            task['title'],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
