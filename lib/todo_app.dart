@@ -47,6 +47,7 @@ class _FormPageState extends State<FormPage> {
       body: SingleChildScrollView(
         child: Form(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
               const Text('Task Date:', style: TextStyle(fontSize: 18)),
