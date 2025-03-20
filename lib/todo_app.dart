@@ -102,6 +102,7 @@ class _FormPageState extends State<FormPage> {
                       onSaved: (value) => _firstName = value,
                     ),
                   ),
+                  const SizedBox(width: 8),
                 ],
               ),
             ],
