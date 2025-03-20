@@ -126,6 +126,13 @@ class _FormPageState extends State<FormPage> {
                             _selectedDate = null;
                             _formKey.currentState!.reset();
                           });
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Form Submitted'),
+                              backgroundColor:
+                                  Colors.green, // ✅ SnackBar jadi hijau
+                            ),
+                          );
                         }
                       },
                       child: const Text('Submit'),
