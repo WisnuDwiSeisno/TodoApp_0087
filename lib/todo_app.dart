@@ -45,7 +45,9 @@ class _FormPageState extends State<FormPage> {
         elevation: 0,
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Form(
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -80,6 +82,7 @@ class _FormPageState extends State<FormPage> {
                   style: TextStyle(color: Colors.red),
                 ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: TextFormField(
@@ -140,11 +143,13 @@ class _FormPageState extends State<FormPage> {
                   ),
                 ],
               ),
+
               const SizedBox(height: 10),
               const Text(
                 'List Tasks',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 10),
               ...tasks.map(
                 (task) => Container(
                   margin: const EdgeInsets.only(bottom: 10),
@@ -154,8 +159,10 @@ class _FormPageState extends State<FormPage> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             task['title'],
@@ -174,9 +181,17 @@ class _FormPageState extends State<FormPage> {
                               color: task['done'] ? Colors.green : Colors.red,
                             ),
                           ),
-
                         ],
-                      )
+                      ),
+                      Checkbox(
+                        value: task['done'],
+                        activeColor: Colors.deepPurple,
+                        onChanged: (value) {
+                          setState(() {
+                            task['done'] = value;
+                          });
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -185,6 +200,42 @@ class _FormPageState extends State<FormPage> {
           ),
         ),
       ),
+      bottomSheet:
+          _showDatePicker
+              ? Container(
+                height: 300,
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    const Text(
+                      'Set Task Date & Time',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 200,
+                      child: CupertinoDatePicker(
+                        mode: CupertinoDatePickerMode.dateAndTime,
+                        initialDateTime: DateTime.now(),
+                        onDateTimeChanged: (dateTime) {
+                          _selectedDate = dateTime;
+                        },
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          _showDatePicker = false;
+                        });
+                      },
+                      child: const Text('Select'),
+                    ),
+                  ],
+                ),
+              )
+              : null,
     );
   }
 }
