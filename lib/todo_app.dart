@@ -50,6 +50,20 @@ class _FormPageState extends State<FormPage> {
             children: [
               const SizedBox(height: 20),
               const Text('Task Date:', style: TextStyle(fontSize: 18)),
+              Row(
+                children: [
+                  Text(
+                    _selectedDate == null
+                        ? 'Select a date'
+                        : '${_selectedDate!.day.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.year} ${_selectedDate!.hour.toString().padLeft(2, '0')}:${_selectedDate!.minute.toString().padLeft(2, '0')}',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color:
+                          _selectedDate == null ? Colors.black : Colors.black,
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
