@@ -92,6 +92,12 @@ class _FormPageState extends State<FormPage> {
                           fontSize: 12,
                         ),
                       ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
                     ),
                   ),
                 ],
