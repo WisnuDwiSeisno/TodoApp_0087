@@ -73,7 +73,12 @@ class _FormPageState extends State<FormPage> {
                     },
                   ),
                 ],
-              )
+              ),
+              if (_selectedDate == null)
+                const Text(
+                  "Please select a date",
+                  style: TextStyle(color: Colors.red),
+                ),
             ],
           ),
         ),
