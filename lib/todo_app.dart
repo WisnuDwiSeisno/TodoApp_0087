@@ -103,6 +103,16 @@ class _FormPageState extends State<FormPage> {
                     ),
                   ),
                   const SizedBox(width: 8),
+                  SizedBox(
+                    height: 60, // Biar sejajar sama TextField
+                    child: FilledButton(
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                      ), onPressed: () {
+                        
+                      }, child: const Text('Submit')
+                    ),
+                  )
                 ],
               ),
             ],
