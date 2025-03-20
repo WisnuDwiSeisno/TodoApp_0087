@@ -164,6 +164,10 @@ class _FormPageState extends State<FormPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          Text(
+                            'Deadline: ${task['deadline']}',
+                            style: const TextStyle(color: Colors.blueGrey),
+                          ),
 
                         ],
                       )
