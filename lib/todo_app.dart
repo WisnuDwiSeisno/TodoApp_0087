@@ -44,7 +44,16 @@ class _FormPageState extends State<FormPage> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SingleChildScrollView()
+      body: SingleChildScrollView(
+        child: Form(
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              const Text('Task Date:', style: TextStyle(fontSize: 18)),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
