@@ -145,6 +145,16 @@ class _FormPageState extends State<FormPage> {
                 'List Tasks',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
+              ...tasks.map(
+                (task) => Container(
+                  margin: const EdgeInsets.only(bottom: 10),
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
