@@ -168,6 +168,12 @@ class _FormPageState extends State<FormPage> {
                             'Deadline: ${task['deadline']}',
                             style: const TextStyle(color: Colors.blueGrey),
                           ),
+                          Text(
+                            task['done'] ? 'Done' : 'Not Done',
+                            style: TextStyle(
+                              color: task['done'] ? Colors.green : Colors.red,
+                            ),
+                          ),
 
                         ],
                       )
