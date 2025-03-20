@@ -98,6 +98,8 @@ class _FormPageState extends State<FormPage> {
                         }
                         return null;
                       },
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      onSaved: (value) => _firstName = value,
                     ),
                   ),
                 ],
